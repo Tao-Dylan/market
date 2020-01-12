@@ -4,7 +4,10 @@ import router from './router'
 import './plugins/vant.js'
 
 Vue.config.productionTip = false
-// console.log(router);
+
+// 给Vue原型上添加一个$bus属性且赋值一个实例
+Vue.prototype.$bus = new Vue()
+
 
 new Vue({
   router,

@@ -1,6 +1,6 @@
-import Vue from 'vue'
+import Vue from "vue";
 
+import { Swipe, SwipeItem, Tab, Tabs } from "vant";
 
-import { Tabbar, TabbarItem } from 'vant';
-
-Vue.use(Tabbar).use(TabbarItem);
+Vue.use(Swipe).use(SwipeItem);
+Vue.use(Tab).use(Tabs);
