@@ -49,16 +49,18 @@ export default {
     scrollToElement(el, time = 300) {
       this.scroll.scrollToElement(el, time);
     },
+    scrollTo(x, y, time = 300) {
+      this.scroll.scrollTo(x, y, time);
+    },
     finishPullUp() {
       this.scroll.finishPullUp();
     },
     refresh() {
       // console.log('防抖函数功能正常')
-      this.scroll.refresh()
+      this.scroll.refresh();
     }
   }
 };
 </script>
 
-<style scoped lang="less">
-</style>
+<style scoped lang="less"></style>

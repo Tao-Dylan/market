@@ -8,8 +8,8 @@
     <tab-control
       v-show="isTabFixed"
       class="fixed"
-      ref="tabControl"
-      :titles="['流行','新款','精选']"
+      ref="tabControl2"
+      :titles="['流行', '新款', '精选']"
       @tabClick="tabClick"
     />
 
@@ -31,7 +31,7 @@
       <!-- tabControl -->
       <tab-control
         ref="tabControl"
-        :titles="['流行','新款','精选']"
+        :titles="['流行', '新款', '精选']"
         @tabClick="tabClick"
       />
       <!-- 商品展示 -->
@@ -57,6 +57,7 @@ import FeatureView from "./childcomps/FeatureView";
 
 import { getHomeMultidate, getHomeGoods } from "network/home";
 import { debounce } from "common/utils";
+import { backTopMixin } from "common/mixin";
 
 export default {
   name: "Home",
@@ -70,6 +71,7 @@ export default {
     RecommendView,
     FeatureView
   },
+  mixins: [backTopMixin],
   data() {
     return {
       // 轮播图图片
@@ -112,7 +114,7 @@ export default {
   updated() {
     // 监听tabControl的吸顶offsetTop
     this.tabOffsetTop = this.$refs.tabControl.$el.offsetTop;
-    console.log(this.tabOffsetTop);
+    // console.log(this.tabOffsetTop);
   },
   /*-----------------------------------  methods ---------------------------- */
   methods: {
@@ -144,11 +146,10 @@ export default {
         this.currentType = "pop";
       }
       // console.log(this.currentType)
+      this.$refs.tabControl.currentIndex = index;
+      this.$refs.tabControl2.currentIndex = index;
     },
-    // 监听回到顶部按钮
-    backClick() {
-      this.$refs.scroll.scrollToElement("#home");
-    },
+
     // scroll区域监听滚动位置
     scrollPosition(position) {
       // 监听返回顶部按钮是否显示

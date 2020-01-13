@@ -1,6 +1,11 @@
 <template>
   <div class="good-list">
-    <goods-list-item class="item" v-for="(item, index) in goods" :key="index" :goods-item="item" />
+    <goods-list-item
+      class="item"
+      v-for="(item, index) in goods"
+      :key="index"
+      :goods-item="item"
+    />
   </div>
 </template>
 
@@ -34,9 +39,9 @@ export default {
 <style scoped lang="less">
 .good-list {
   display: flex;
-   flex-wrap: wrap;
-   padding: 5px;
-   justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 5px;
+  justify-content: space-around;
   .item {
     width: 48%;
   }

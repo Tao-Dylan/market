@@ -1,10 +1,10 @@
 <template>
   <div class="goods-item">
-    <img @click="goodsItemClick" :src="goodsItem.show.img" alt />
+    <img @click="goodsItemClick" :src="showImage" alt />
     <div class="goods-info">
-      <p>{{goodsItem.title}}</p>
-      <span class="price">¥{{goodsItem.price}}</span>
-      <span class="collect">{{goodsItem.cfav}}</span>
+      <p>{{ goodsItem.title }}</p>
+      <span class="price">¥{{ goodsItem.price }}</span>
+      <span class="collect">{{ goodsItem.cfav }}</span>
     </div>
   </div>
 </template>
@@ -23,13 +23,16 @@ export default {
   data() {
     return {};
   },
-  created() {
+  computed: {
+    showImage() {
+      return this.goodsItem.image || this.goodsItem.show.img
+    }
   },
-  mounted() {},
   methods: {
-goodsItemClick() {
-  console.log('tiaozhuan ')
-}
+    goodsItemClick() {
+      // console.log(this.goodsItem.iid)
+      this.$router.push("/detail/" + this.goodsItem.iid);
+    }
   }
 };
 </script>
@@ -71,7 +74,7 @@ goodsItemClick() {
         width: 13px;
         height: 13px;
         background: url("~assets/img/common/collect.svg");
-        background-size: 13px
+        background-size: 13px;
       }
     }
   }

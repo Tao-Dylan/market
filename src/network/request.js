@@ -8,7 +8,7 @@ export function request(config) {
     timeout: 5000
   })
   // 2.axios的拦截器 
-
+ 
   // 3.发送真正的网络请求
   return instance(config)
 }
