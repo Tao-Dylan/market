@@ -1,6 +1,6 @@
 <template>
   <div class="home-swiper">
-    <van-swipe :autoplay="3000" indicator-color="red" :loop="false">
+    <van-swipe :autoplay="3000" indicator-color="red">
       <van-swipe-item v-for="(item, index) in banners" :key="index">
         <a :href="item.link">
           <img :src="item.image" alt />

@@ -7,7 +7,6 @@
       @titleClick="titleClick"
       :current-index="currentIndex"
     />
-
     <!--  scroll滚动区域 -->
     <scroll
       class="content"
@@ -43,7 +42,7 @@
       />
     </scroll>
     <!-- 底部栏 -->
-    <detail-bottom-bar @addToCart="addToCart"/>
+    <detail-bottom-bar @addToCart="addToCart" />
     <!-- 返回顶部箭头 -->
     <back-top v-show="isShowBackTop" @click.native="backClick" />
   </div>
@@ -118,9 +117,6 @@ export default {
     this._getRecommend();
   },
   mounted() {},
-  updated() {
-    console.log(this.currentIndex);
-  },
   methods: {
     // 获取导航title的内容对应的高度
     _getOffsetTop() {
@@ -129,7 +125,7 @@ export default {
       this.themeTops.push(this.$refs.paramInfo.$el.offsetTop);
       this.themeTops.push(this.$refs.commentInfo.$el.offsetTop);
       this.themeTops.push(this.$refs.recommendList.$el.offsetTop);
-      console.log(this.themeTops);
+      // console.log(this.themeTops);
     },
 
     // 获取详情数据
@@ -215,7 +211,18 @@ export default {
     },
     // 监听添加购物车
     addToCart() {
-      console.log('添加购物车')
+      console.log("添加购物车");
+      // 创建购物车商品对象
+      console.log(this.goods)
+      const obj = {};
+      obj.iid = this.iid;
+      obj.imgURL = this.swiperImage[0];
+      obj.title = this.goods.title;
+      obj.desc = this.goods.desc;
+      obj.newPrice = this.goods.realPrice;
+      // 2.将商品数据传到购物车页面
+      // this.$store.commit("addCart", obj);
+      this.$store.dispatch("addCart", obj);
     }
   }
 };

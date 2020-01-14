@@ -10,7 +10,6 @@
 <script>
 import MainTabBar from "components/content/mainTabBar/MainTabBar";
 
-// import HomeSwiperTwo from "views/home/childcomps/HomeSwiperTwo";
 
 export default {
   name: "app",
